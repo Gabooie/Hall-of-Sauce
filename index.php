@@ -27,8 +27,12 @@
 		        $('#toTop').fadeOut();
 		    }
 		});
+		function setVolume(volume){
+			document.getElementById("Sauce").volume = volume;
+		}
 	</script>
-
+</head>
+<body>
 
 	<!--URL CHANGER // Gets filename from a .webm inside of the storage folder and adds it to the URL. // This system is random and it works well. It was a bitch to get working and could prob be cleaner but it works for now -Gabooie -->
 	<?php 
@@ -89,7 +93,6 @@
 			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 		</div>
 	</div>
-</head>
 
 
 <!--URL GRABBER // gets the video source by grabbing the URL and adds ".webm" to the end. // This also is what makes the entire page clickable to reload the site and choose another random webm. -Gabooie -->
