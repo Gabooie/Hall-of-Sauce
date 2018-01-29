@@ -14,7 +14,7 @@
 			if( op <= 0 ){
 				$("#thing-to-hide").show();
 			} else {
-				$("#thing-to-hide").hide();
+				$("#thing-to-hide").hide():
 			}
 			$("#button").css("opacity", op ); 
 		});
@@ -93,28 +93,6 @@
 	</video>
 </a>
 
-<script>
-	function setVidVolume() { 
-		var vid = document.getElementById("sauce");
-</script>
-
-
-<button onclick="muteVolume()" type="button">Mute Audio</button>
-<button onclick="setFullVolume()" type="button">Set volume to 1.0</button><br> 
-
-
-<script>
-	var vid = document.getElementById("sauce");
-	  
-	function muteVolume() { 
-	    vid.volume = 0.0;
-	} 
-	  
-	function setFullVolume() { 
-	   vid.volume = "volume";
-	} 
-</script> 
-
 
 <!--Part of scroll hiding script. -Gabooie -->
 <script>
@@ -132,63 +110,4 @@
 
 
 </body>
-</html>
-
-
-<?php
-    session_start();
-?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <?php
-            if(!$_SESSION['volume']) {
-                $_SESSION['volume'] =0.5;
-            } 
-
-        ?>
-        <input type="range" onchange="setVolume()" id='volume1' min=0 max=1 step=0.01 value=<?php echo $_SESSION['volume']?>>
-        
-        <p>Value: <span id="volume"></span></p>
-
-		<script>
-			var slider = document.getElementById("volume1");
-			var output = document.getElementById("volume");
-			output.innerHTML = slider.value;
-
-			slider.oninput = function() {
-			  output.innerHTML = this.value;
-			}
-		</script>
-
-
-        <script
-          src="https://code.jquery.com/jquery-2.2.4.min.js"
-          integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-          crossorigin="anonymous">
-          </script>
-
-        <script>
-            function setVolume() {   
-                mediaClip = document.getElementById("volume1").value;
-                var update= 'volume=' + mediaClip;
-                $.ajax({
-                    type: "POST",
-                    url: "update.php",
-                    data: update,
-                    dataType: 'json',
-                    cache: false,
-                    success: function(response) {
-                        alert(response.message);
-                    }
-                });
-            }
-        </script>
-    </body>
 </html>
