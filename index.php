@@ -6,21 +6,36 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
 
-	
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-    $(window).scroll(function(){
-    var threshold = 0; // number of pixels before bottom of page that you want to start fading
-    var op = (($(document).height() - $(window).height()) - $(window).scrollTop()) / threshold;
-      if( op <= 0 ){
-        $("#thing-to-hide").show();
-      } else {
-        $("#thing-to-hide").hide():
-      }
-      $("#button").css("opacity", op ); 
-    });
-  </script>
+	<!--Simple script to hide button while menu is not up. -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+		$(window).scroll(function(){
+		var threshold = 0; // number of pixels before bottom of page that you want to start fading
+		var op = (($(document).height() - $(window).height()) - $(window).scrollTop()) / threshold;
+			if( op <= 0 ){
+				$("#thing-to-hide").show();
+			} else {
+				$("#thing-to-hide").hide():
+			}
+			$("#button").css("opacity", op ); 
+		});
+
+	    //Part of scroll hiding script. -Gabooie
+		$(window).scroll(function() {
+		    if ($(this).scrollTop()) {
+		        $('#toTop').fadeIn();
+		    } else {
+		        $('#toTop').fadeOut();
+		    }
+		});
+	</script>
 </head>
 <body>
+	<script>
+		function setVolume(){
+			document.getElementById("sauce").volume = document.getElementById("volume").value;
+		}
+	</script>
+	<input id="volume" type="range" min="0.0" max="1.0" step="0.01" onchange="setVolume();" />
 
 	<!--URL CHANGER // Gets filename from a .webm inside of the storage folder and adds it to the URL. // This system is random and it works well. It was a bitch to get working and could prob be cleaner but it works for now -Gabooie -->
 	<?php 
@@ -103,6 +118,7 @@
 	
 <div id='toTop'><button onclick="hideComment()" id="hidecommentbtn" title="Close Comments" class="commentbutton">Close Comments</button></div>
 	<script>
+		document.getElementById("sauce").volume = 0.5;
 		function hideComment() {
 			document.body.scrollTop = 0;
 			document.documentElement.scrollTop = 0;
