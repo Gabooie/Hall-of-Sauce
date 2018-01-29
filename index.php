@@ -24,13 +24,6 @@
 
 	<!--URL CHANGER // Gets filename from a .webm inside of the storage folder and adds it to the URL. // This system is random and it works well. It was a bitch to get working and could prob be cleaner but it works for now -Gabooie -->
 	<?php 
-		function random_vid($dir = 'storage')
-		{
-			$files = glob($dir . '/*.*');
-			$file = array_rand($files);
-			return $files[$file];
-		}
-
 		$path = "storage";
 		$filed = glob($path . '/*.*');
 		$filev = array_rand($filed);
