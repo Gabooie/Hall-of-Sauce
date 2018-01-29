@@ -19,6 +19,14 @@
 			$("#button").css("opacity", op ); 
 		});
 
+	    //Part of scroll hiding script. -Gabooie
+		$(window).scroll(function() {
+		    if ($(this).scrollTop()) {
+		        $('#toTop').fadeIn();
+		    } else {
+		        $('#toTop').fadeOut();
+		    }
+		});
 	</script>
 
 
@@ -28,15 +36,14 @@
 		$filed = glob($path . '/*.*');
 		$filev = array_rand($filed);
 		$newval = basename($filed[$filev], ".webm");
-		  if( !count($_GET) ) {
-		  header('Location: ?' . $newval);
-		  exit;
+		    if( !count($_GET) ) {
+		    header('Location: ?' . $newval);
+		    exit;
 		}	
 		$_GET['S'] = $newval;
+
+		$final = print_r($_SERVER['QUERY_STRING'], TRUE);
 	?>
-
-	<?php $final = print_r($_SERVER['QUERY_STRING'], TRUE); ?>
-
 
 	<!--HOS LOGO ANIMATION // Makes the logo shrink and keeps it from overlapping with Disqus comments -Gabooie -->
 	<div id="logo-anim">
@@ -45,7 +52,6 @@
 			</div>
 		<script>
 			(function() {
-			  'use strict';
 			  var he = document.getElementById('header');
 			  var startShrink = 50;
 			  window.addEventListener('scroll',
@@ -92,18 +98,6 @@
 		<source src="<?php echo "storage/" . $final . ".webm"; ?>" type='video/webm'>
 	</video>
 </a>
-
-
-<!--Part of scroll hiding script. -Gabooie -->
-<script>
-	$(window).scroll(function() {
-	    if ($(this).scrollTop()) {
-	        $('#toTop').fadeIn();
-	    } else {
-	        $('#toTop').fadeOut();
-	    }
-	});
-</script>
 
 <!--UNFINISHED-->
 <div id='toTop'><button class="aboutbutton">WORK IP</button></div>
