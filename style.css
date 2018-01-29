@@ -84,7 +84,28 @@ body {
 
 
 .commentbutton {
-	background-color: #ffa221; /* Green */
+	background-color: #ffa221;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+}	
+
+#Login {
+	padding: 5px 3px;
+	position: fixed;
+	top: 10px;
+	right: 10px;
+}
+
+
+.loginbutton {
+	background-color: #ffa221;
 	border: none;
 	color: white;
 	padding: 15px 32px;

@@ -6,31 +6,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
 
-	<!--Simple script to hide button while menu is not up. -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-		$(window).scroll(function(){
-		var threshold = 0; // number of pixels before bottom of page that you want to start fading
-		var op = (($(document).height() - $(window).height()) - $(window).scrollTop()) / threshold;
-			if( op <= 0 ){
-				$("#thing-to-hide").show();
-			} else {
-				$("#thing-to-hide").hide():
-			}
-			$("#button").css("opacity", op ); 
-		});
-
-	    //Part of scroll hiding script. -Gabooie
-		$(window).scroll(function() {
-		    if ($(this).scrollTop()) {
-		        $('#toTop').fadeIn();
-		    } else {
-		        $('#toTop').fadeOut();
-		    }
-		});
-		function setVolume(volume){
-			document.getElementById("Sauce").volume = volume;
-		}
-	</script>
+	
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    $(window).scroll(function(){
+    var threshold = 0; // number of pixels before bottom of page that you want to start fading
+    var op = (($(document).height() - $(window).height()) - $(window).scrollTop()) / threshold;
+      if( op <= 0 ){
+        $("#thing-to-hide").show();
+      } else {
+        $("#thing-to-hide").hide():
+      }
+      $("#button").css("opacity", op ); 
+    });
+  </script>
 </head>
 <body>
 
@@ -102,7 +90,17 @@
 	</video>
 </a>
 
-
+<!--Hides buttons before scrolling down. MUST BE IN BODY OF HTML! -->
+<script>
+    $(window).scroll(function() {
+        if ($(this).scrollTop()) {
+            $('#toTop').fadeIn();
+        } else {
+            $('#toTop').fadeOut();
+        }
+    });
+</script>	
+	
 <div id='toTop'><button onclick="hideComment()" id="hidecommentbtn" title="Close Comments" class="commentbutton">Close Comments</button></div>
 	<script>
 		function hideComment() {
@@ -111,6 +109,9 @@
 		}
 	</script>
 
+<a href="http://hallofsauce.com/login">
+<div id='Login'><button id="loginbtn" title="Login/Register" class="loginbutton">Login/Register</button></div>
+</a>
 
 </body>
 </html>
