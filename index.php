@@ -87,7 +87,7 @@
 				  var d = document, s = d.createElement('script');
 				  s.src = 'https://hofs.disqus.com/embed.js';
 				  s.setAttribute('data-timestamp', +new Date());
-				  (d.head || d.body).appendChild(s);
+				  (d.head || d.body).appendChild(s);d
 				})();
 			</script>
 			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
@@ -102,8 +102,14 @@
 	</video>
 </a>
 
-<!--UNFINISHED-->
-<div id='toTop'><button class="aboutbutton">WORK IP</button></div>
+
+<div id='toTop'><button onclick="hideComment()" id="hidecommentbtn" title="Close Comments" class="commentbutton">Close Comments</button></div>
+	<script>
+		function hideComment() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+	</script>
 
 
 </body>
