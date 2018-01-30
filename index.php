@@ -30,13 +30,50 @@
 	</script>
 </head>
 <body>
+
+	<?php
+    	session_start();
+	?>
+
+	<?php
+        if(!$_SESSION['volume']) {
+            $_SESSION['volume'] =0.5;
+        } 
+
+	?>
+	
 	<script>
 		function setVolume(){
 			document.getElementById("sauce").volume = document.getElementById("volume").value;
 		}
+		window.onload = setVolume;
 	</script>
-	<input id="volume" type="range" min="0.0" max="1.0" step="0.01" onchange="setVolume();" />
+	<input id="volume" type="range" min="0.0" max="1.0" step="0.01" class="slider" onchange="setVolume(); saveVolume();" value="<?php echo $_SESSION['volume']?>" />
 
+	<script
+          src="https://code.jquery.com/jquery-2.2.4.min.js"
+          integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+          crossorigin="anonymous">
+    </script>
+	
+	<script>
+            function saveVolume() {   
+                mediaClip = document.getElementById("volume").value;
+                var update= 'volume=' + mediaClip;
+                $.ajax({
+                    type: "POST",
+                    url: "update.php",
+                    data: update,
+                    dataType: 'json',
+                    cache: false,
+                    success: function(response) {
+                        alert(response.message);
+                    }
+                });
+            }
+    	</script>
+	
+	
 	<!--URL CHANGER // Gets filename from a .webm inside of the storage folder and adds it to the URL. // This system is random and it works well. It was a bitch to get working and could prob be cleaner but it works for now -Gabooie -->
 	<?php 
 		$path = "storage";
